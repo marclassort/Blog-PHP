@@ -1,0 +1,16 @@
+{
+    "autoloadFolder" : [
+        "../src/Controller",
+        "../src/Core",
+        "../src/Repository", 
+        "../src/Exceptions"
+    ],
+    "database" : {
+        "name" : "Ma base de données",
+        "dbname" : "database",
+        "host" : "localhost",
+        "user" : "admin",
+        "password" : "OC-Blog-PHP"
+    },
+    "basepath" : "/PHP/Blog-PHP"
+}
