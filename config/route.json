@@ -8,7 +8,7 @@
 },
 {
     "path" : "/login",
-    "controller" : "Home",
+    "controller" : "User",
     "action" : "Login",
     "method" : "GET",
     "param" : [],
@@ -16,7 +16,7 @@
 },
 {
     "path" : "/login",
-    "controller" : "Home",
+    "controller" : "User",
     "action" : "Authenticate",
     "method" : "POST",
     "param" : [
@@ -26,6 +26,46 @@
     "manager" : [
         "User"
     ]
+},
+{
+    "path" : "/contact",
+    "controller" : "Contact",
+    "action" : "Contact",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/blog",
+    "controller" : "Blog",
+    "action" : "Blog",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/services",
+    "controller" : "Services",
+    "action" : "Services",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/projets",
+    "controller" : "Projects",
+    "action" : "Projects",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/politique-de-confidentialite",
+    "controller" : "Privacy",
+    "action" : "Privacy",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
 },
 {
     "path" : "/error",

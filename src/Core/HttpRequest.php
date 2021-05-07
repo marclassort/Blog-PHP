@@ -73,6 +73,7 @@ class HttpRequest
 
     public function run($config)
     {
+        $this->bindParam();
         $this->route->run($this, $config);
     }
 

@@ -5,7 +5,8 @@ namespace App\Controller;
 use Entity\User;
 use Core\BaseController;
 
-class UserController {
+class UserController extends BaseController {
+
     public function Login()
     {
         $this->view("login");
@@ -13,6 +14,8 @@ class UserController {
 
     public function Authenticate($login, $password)
     {
-
+        $user = $this->UserManager->getByMail($login);
+        var_dump($user);
     }
+    
 }

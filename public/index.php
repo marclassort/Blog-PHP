@@ -4,9 +4,12 @@ use Core\HttpRequest;
 use Core\Router;
 
 require '../vendor/autoload.php';
+define('CORE_DIR', realpath(dirname(__DIR__)));
 define('CONF_DIR', realpath(dirname(__DIR__ )) . '/config');
-define('VIEW_DIR', realpath(dirname(__DIR__ )) . '/src/view');
 define('SRC_DIR', realpath(dirname(__DIR__ )) . '/src');
+define('CONTROLLER_DIR', realpath(dirname(__DIR__)) . '/src/Controller');
+define('VIEW_DIR', realpath(dirname(__DIR__ )) . '/src/view');
+define('PUBLIC_DIR', realpath(dirname(__DIR__)) . '/public');
 
 $configFile = file_get_contents(CONF_DIR . '/config.json');
 $config = json_decode($configFile);
@@ -38,5 +41,3 @@ catch(Exception $e)
     $httpRequest->addParam($e);
     $httpRequest->run($config);
 }
-
-// return $this->render(‘nomVue.html.twig’);

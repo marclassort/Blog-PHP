@@ -3,7 +3,8 @@
         "../src/Controller",
         "../src/Core",
         "../src/Repository", 
-        "../src/Exceptions"
+        "../src/Exceptions",
+        "../src/Entity"
     ],
     "database" : {
         "name" : "Ma base de données",

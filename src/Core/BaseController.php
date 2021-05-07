@@ -9,6 +9,8 @@ use Exceptions\TwigException;
 use FileManager;
 use ViewNotFoundException;
 
+require CORE_DIR . '/vendor/autoload.php';
+
 class BaseController
 {
 
@@ -26,32 +28,6 @@ class BaseController
         $this->addParam("config", $this->config);
         $this->bindManager();
         $this->FileManager = new FileManager();
-    }
-
-    protected function view($filename)
-    {
-        if (file_exists(VIEW_DIR . '/' . "/css" . $filename . ".css"))
-        {
-            $this->addCss(VIEW_DIR . '/' . "/css" . $filename . ".css");
-        }
-
-        if (file_exists(VIEW_DIR . '/' . "/js" . $filename . ".js"))
-        {
-            $this->addCss(VIEW_DIR . '/' . "/js" . $filename . ".js");
-        }
-
-        if (file_exists(VIEW_DIR . '/' . $filename . '.php')) 
-        {
-            ob_start();
-            extract($this->param);
-            include(VIEW_DIR . '/' . $filename . '.php');
-            $content = ob_get_clean();
-            include(VIEW_DIR . '/frontend/template.html.twig');
-        }
-        else 
-        {
-            throw new ViewNotFoundException();
-        }
     }
 
     public function bindManager()
@@ -77,15 +53,17 @@ class BaseController
         $this->FileManager->addJs($file);
     }
 
-    protected function render($filename, $array)
+    protected function render($dirname, $filename, $array)
 	{
-		if(file_exists(VIEW_DIR . '//' . $filename))
+        
+		if (file_exists(VIEW_DIR . '/' . $dirname . '/' . $filename))
 		{
+
 			extract($this->param);
 
-
-			$loader = new \Twig\Loader\FilesystemLoader(VIEW_DIR . '//');
+			$loader = new \Twig\Loader\FilesystemLoader(VIEW_DIR . '//' . $dirname);
 			$twig = new \Twig\Environment($loader, ['debug' => true]);
+            
 			echo $twig->render($filename, $array);
 
 		} else
@@ -93,4 +71,37 @@ class BaseController
 			throw new ViewNotFoundException();	
 		}
 	}
+
+    // protected function view($filename)
+    // {
+    //     if (file_exists(PUBLIC_DIR . '/' . "/css" . $filename . ".css"))
+    //     {
+    //         $this->addCss(PUBLIC_DIR . '/' . "/css" . $filename . ".css");
+    //     }
+
+    //     if (file_exists(PUBLIC_DIR . '/' . "/js" . $filename . ".js"))
+    //     {
+    //         $this->addCss(PUBLIC_DIR . '/' . "/js" . $filename . ".js");
+    //     }
+
+    //     if (file_exists(VIEW_DIR . '/frontend/' . $filename . '.html.twig')) 
+    //     {
+            
+    //         ob_start();
+    //         extract($this->param);
+    //         $content = ob_get_clean();
+
+    //         $loader = new \Twig\Loader\FilesystemLoader(VIEW_DIR);
+    //         $twig = new \Twig\Environment($loader);
+
+    //         echo $twig->render("template.html.twig", ['title' => 'Blog de Marc Lassort']);
+
+    //         echo $twig->render('/frontend/' . $filename . '.html.twig', ['title' => 'Blog de Marc Lassort']);
+        
+    //     }
+    //     else 
+    //     {
+    //         throw new ViewNotFoundException();
+    //     }
+    // }
 }

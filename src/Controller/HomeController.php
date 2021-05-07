@@ -7,8 +7,12 @@ use Core\BaseController;
 class HomeController extends BaseController 
 {
 
-    public function Home() {
-        $this->view("home");
+    public function Home() 
+    {
+        $string = "Ceci est une variable";
+        return $this->render('frontend', "home.html.twig", [
+            "string" => $string
+        ]);
     }
 
 }

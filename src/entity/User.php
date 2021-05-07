@@ -13,6 +13,11 @@ class User
     private $password;
     private $role;
 
+    public function __construct()
+    {
+        
+    }
+
     public function setId(int $id): void
     {
         $this->id = $id;

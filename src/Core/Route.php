@@ -57,7 +57,7 @@ class Route
     public function run($httpRequest, $config)
     {
         $controller = null;
-        $controllerName = $this->controller . "Controller";
+        $controllerName = "App\Controller\\" . $this->controller . "Controller";
 
         if (class_exists($controllerName))
         {
