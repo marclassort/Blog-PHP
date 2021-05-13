@@ -4,7 +4,6 @@ namespace Entity;
 
 class Comment 
 {
-
     /**
      * @var int
      */
