@@ -8,7 +8,7 @@ class UserController extends BaseController {
 
     public function login()
     {
-        $this->render('frontend', 'login.html.twig', []);
+        return $this->render('frontend', 'login.html.twig', []);
     }
 
     public function authenticate($login, $password)

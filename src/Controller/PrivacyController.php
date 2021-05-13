@@ -8,7 +8,7 @@ class PrivacyController extends BaseController
 {
 
     public function privacy() {
-        $this->render('frontend', 'politique-de-confidentialite.html.twig', []);
+        return $this->render('frontend', 'politique-de-confidentialite.html.twig', []);
     }
 
 }

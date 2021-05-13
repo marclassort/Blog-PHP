@@ -8,7 +8,7 @@ class ContactController extends BaseController
 {
 
     public function contact() {
-        $this->render('frontend', 'contact.html.twig', []);
+        return $this->render('frontend', 'contact.html.twig', []);
     }
 
 }

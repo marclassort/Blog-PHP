@@ -8,7 +8,7 @@ class CommentController extends BaseController
 {
 
     public function comment() {
-        $this->render('frontend', 'comment.html.twig', []);
+        return $this->render('frontend', 'comment.html.twig', []);
     }
     
 }
