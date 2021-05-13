@@ -1,0 +1,77 @@
+[{
+    "path" : "/",
+    "controller" : "Home",
+    "action" : "Home",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/login",
+    "controller" : "User",
+    "action" : "Login",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/login",
+    "controller" : "User",
+    "action" : "Authenticate",
+    "method" : "POST",
+    "param" : [
+        "login",
+        "password"
+    ],
+    "manager" : [
+        "User"
+    ]
+},
+{
+    "path" : "/contact",
+    "controller" : "Contact",
+    "action" : "Contact",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/blog",
+    "controller" : "Blog",
+    "action" : "Blog",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/services",
+    "controller" : "Services",
+    "action" : "Services",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/projets",
+    "controller" : "Projects",
+    "action" : "Projects",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/politique-de-confidentialite",
+    "controller" : "Privacy",
+    "action" : "Privacy",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/error",
+    "controller" : "Error", 
+    "action" : "Show",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+}]

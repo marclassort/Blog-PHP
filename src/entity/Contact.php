@@ -1,75 +1,107 @@
 <?php 
 
+namespace Entity;
+
 class Contact 
 {
+
+    /**
+     * @var int
+     */
     private $id;
+
+    /**
+     * @var string
+     */
     private $author;
+
+    /**
+     * @var mixed
+     */
     private $creationDate;
+
+    /**
+     * @var string
+     */
     private $subject;
+
+    /**
+     * @var string
+     */
     private $content;
+
+    /**
+     * @var string
+     */
     private $emailAddress;
+
+    /**
+     * @var bool
+     */
     private $isHandled;
 
-    public function __construct($newCreationDate) 
-    {
-        $this->creationDate = new \DateTime();
-    }
-
-    public function setId(int $id): void
+    public function __construct(int $id, string $a, mixed $cd, string $s, string $c, string $e, bool $i) 
     {
         $this->id = $id;
+        $this->author = $a;
+        $this->creationDate = $cd;
+        $this->subject = $s;
+        $this->content = $c;
+        $this->emailAddress = $e;
+        $this->isHandled = $i;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function setAuthor(string $author): void
-    {
-        $this->author = $author;
-    }
-
+    /**
+     * @return string
+     */
     public function getAuthor(): string
     {
         return $this->author;
     }
 
-    public function setSubject(string $subject): void
+    /**
+     * @return mixed
+     */
+    public function getCreationDate(): mixed
     {
-        $this->subject = $subject;
+        return $this->creationDate;
     }
 
+    /**
+     * @return string
+     */
     public function getSubject(): string
     {
         return $this->subject;
     }
 
-    public function setContent(string $content): void
-    {
-        $this->content = $content;
-    }
-
+    /**
+     * @return string
+     */
     public function getContent(): string
     {
         return $this->content;
     }
 
-    public function setEmailAddress(string $emailAddress): void
-    {
-        $this->emailAddress = $emailAddress;
-    }
-
+    /**
+     * @return string
+     */
     public function getEmailAddress(): string
     {
         return $this->emailAddress;
     }
 
-    public function setIsHandled(bool $isHandled): void
-    {
-        $this->isHandled = $isHandled;
-    }
-
+    /**
+     * @return bool
+     */
     public function getIsHandled(): bool
     {
         return $this->isHandled;

@@ -1,0 +1,11 @@
+# mod_rewrite
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ public/index.php [QSA,L]
+
+# RewriteRule ^(.*)$ public/index.php?url=$1 [NC,L]
+
+FallbackResource /index.php

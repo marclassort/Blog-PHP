@@ -1,91 +1,122 @@
 <?php 
 
+namespace Entity;
+
 class User 
 {
+
+    /**
+     * @var int
+     */
     private $id;
+
+    /**
+     * @var string
+     */
     private $username; 
+
+    /**
+     * @var string
+     */
     private $firstName; 
+
+    /**
+     * @var string
+     */
     private $lastName; 
+
+    /**
+     * @var string
+     */
     private $phoneNumber; 
+
+    /**
+     * @var string
+     */
     private $email;
+
+    /**
+     * @var string
+     */
     private $password;
+
+    /**
+     * @var array
+     */
     private $role;
 
-    public function setId(int $id): void
+    public function __construct(string $un, string $fn, string $ln, string $pn, string $e, string $p, array $r)
     {
-        $this->id = $id;
+
+        $this->username = $un;
+        $this->firstName = $fn;
+        $this->lastName = $ln;
+        $this->phoneNumber = $pn;
+        $this->email = $e;
+        $this->password = $p;
+        $this->role = $r;
+
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function setUsername(string $username): void
-    {
-        $this->username = $username;
-    }
-
+    /**
+     * @return string
+     */
     public function getUsername(): string
     {
         return $this->username;
     }
 
-    public function setFirstName(string $firstName): void
-    {
-        $this->firstName = $firstName;
-    }
-
+    /**
+     * @return string
+     */
     public function getFirstName(): string
     {
         return $this->firstName;
     }
 
-    public function setLastName(string $lastName): void
-    {
-        $this->lastName = $lastName;
-    }
-
+    /**
+     * @return string
+     */
     public function getLastName(): string
     {
         return $this->lastName;
     }
 
-    public function setPhoneNumber(string $phoneNumber): void
-    {
-        $this->phoneNumber = $phoneNumber;
-    }
-
+    /**
+     * @return string
+     */
     public function getPhoneNumber(): string
     {
         return $this->phoneNumber;
     }
 
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
-    }
-
+    /**
+     * @return string
+     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    public function setPassword(string $password): void
-    {
-        $this->password = $password;
-    }
-
+    /**
+     * @return string
+     */
     public function getPassword(): string
     {
         return $this->password;
     }
 
-    public function setRole(array $role): void
-    {
-        $this->role = $role;
-    }
-
+    /**
+     * @return array
+     */
     public function getRole(): array
     {
         return $this->role;
