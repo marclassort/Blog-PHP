@@ -4,65 +4,104 @@ namespace Entity;
 
 class Post
 {
+
+    /**
+     * @var int
+     */
     private $id;
+
+    /**
+     * @var string
+     */
     private $title;
+
+    /**
+     * @var string
+     */
     private $blurb;
+
+    /**
+     * @var mixed
+     */
     private $creationDate;
+
+    /**
+     * @var mixed 
+     */
     private $modifDate;
+
+    /**
+     * @var string
+     */
     private $content;
+
+    /**
+     * @var string
+     */
     private $author;
 
-    public function __construct($newCreationDate) 
+    public function __construct(int $id, string $t, string $b, mixed $cd, mixed $md, string $c, string $a) 
     {
-        $this->creationDate = new \DateTime();
-        $this->modifDate = new \DateTime();
+        $this->id = $id; 
+        $this->title = $t;
+        $this->blurb = $b;
+        $this->creationDate = $cd;
+        $this->modifDate = $md;
+        $this->content = $c;
+        $this->author = $a;
     }
 
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
-    
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
 
+    /**
+     * @return string
+     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function setBlurb(string $blurb): void
-    {
-        $this->blurb = $blurb;
-    }
-
+    /**
+     * @return string
+     */
     public function getBlurb(): string
     {
         return $this->blurb;
     }
 
-    public function setContent(string $content): void
+    /**
+     * @return mixed
+     */
+    public function getCreationDate(): mixed
     {
-        $this->content = $content;
+        return $this->creationDate;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getModifDate(): mixed
+    {
+        return $this->modifDate;
+    }
+
+    /**
+     * @return string
+     */
     public function getContent(): string
     {
         return $this->content;
     }
 
-    public function setAuthor(string $author): void
-    {
-        $this->author = $author;
-    }
-
+    /**
+     * @return string
+     */
     public function getAuthor(): string
     {
         return $this->author;

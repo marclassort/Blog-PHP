@@ -7,8 +7,8 @@ use Core\BaseController;
 class BlogController extends BaseController 
 {
 
-    public function Blog() {
-        $this->view("blog");
+    public function blog() {
+        $this->render('frontend', 'blog.html.twig', []);
     }
 
 }

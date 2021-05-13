@@ -7,8 +7,8 @@ use Core\BaseController;
 class ProjectsController extends BaseController 
 {
 
-    public function Projects() {
-        $this->view("projets");
+    public function projects() {
+        $this->render('frontend', 'projets.html.twig', []);
     }
 
 }

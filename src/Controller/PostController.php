@@ -2,11 +2,24 @@
 
 namespace App\Controller;
 
-use DateTime;
-use Entity\Post;
+use Core\BaseController;
 
-class PostController {
-    public function test() {
-        $post = new Post(new \DateTime());
+class PostController extends BaseController
+{
+
+    public function post() {
+        $this->render('frontend', 'post.html.twig', []);
     }
+
+    public function registerPost($form)
+    {
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            
+        } else 
+        {
+            return $this->render('errors', '404.html.twig', []);
+        }
+    }
+    
 }

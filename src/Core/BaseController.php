@@ -2,10 +2,6 @@
 
 namespace Core;
 
-use Entity\User;
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
-use Exceptions\TwigException;
 use FileManager;
 use ViewNotFoundException;
 
@@ -53,7 +49,7 @@ class BaseController
         $this->FileManager->addJs($file);
     }
 
-    protected function render($dirname, $filename, $array)
+    protected function render($dirname, $filename, $array): void
 	{
         
 		if (file_exists(VIEW_DIR . '/' . $dirname . '/' . $filename))
@@ -72,36 +68,39 @@ class BaseController
 		}
 	}
 
-    // protected function view($filename)
-    // {
-    //     if (file_exists(PUBLIC_DIR . '/' . "/css" . $filename . ".css"))
-    //     {
-    //         $this->addCss(PUBLIC_DIR . '/' . "/css" . $filename . ".css");
-    //     }
+    public function redirect(string $path)
+    {
 
-    //     if (file_exists(PUBLIC_DIR . '/' . "/js" . $filename . ".js"))
-    //     {
-    //         $this->addCss(PUBLIC_DIR . '/' . "/js" . $filename . ".js");
-    //     }
+        header("Location: /PHP/Blog-PHP/" . $path);
+        exit();
 
-    //     if (file_exists(VIEW_DIR . '/frontend/' . $filename . '.html.twig')) 
-    //     {
-            
-    //         ob_start();
-    //         extract($this->param);
-    //         $content = ob_get_clean();
+    }
 
-    //         $loader = new \Twig\Loader\FilesystemLoader(VIEW_DIR);
-    //         $twig = new \Twig\Environment($loader);
-
-    //         echo $twig->render("template.html.twig", ['title' => 'Blog de Marc Lassort']);
-
-    //         echo $twig->render('/frontend/' . $filename . '.html.twig', ['title' => 'Blog de Marc Lassort']);
+    public function isSubmit($submit)
+    {
         
-    //     }
-    //     else 
-    //     {
-    //         throw new ViewNotFoundException();
-    //     }
-    // }
+        if (isset($_POST[$submit]))
+        {
+            return true;
+        }
+        return false;
+
+    }
+
+    public function isValid(array $data)
+    {
+
+        $isValid = true;
+
+        foreach ($data as $value)
+        {
+            if ($value == NULL || !isset($value) || empty($value))
+            {
+                $isValid = false;
+            }
+        }
+        return $isValid;
+
+    }
+
 }

@@ -49,6 +49,7 @@ class HttpRequest
                         $this->param[] = $_GET[$param];
                     }
                 }
+                break;
             case "POST": 
             case "PUT": 
                 foreach($this->route->getParam() as $param)
@@ -58,6 +59,9 @@ class HttpRequest
                         $this->param[] = $_POST[$param];
                     }
                 }
+                break;
+            default:
+                break;
         }
     }
 

@@ -7,8 +7,8 @@ use Core\BaseController;
 class ContactController extends BaseController 
 {
 
-    public function Contact() {
-        $this->view("contact");
+    public function contact() {
+        $this->render('frontend', 'contact.html.twig', []);
     }
 
 }

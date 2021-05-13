@@ -2,20 +2,18 @@
 
 namespace App\Controller;
 
-use Entity\User;
 use Core\BaseController;
 
 class UserController extends BaseController {
 
-    public function Login()
+    public function login()
     {
-        $this->view("login");
+        return $this->render('frontend', 'login.html.twig', []);
     }
 
-    public function Authenticate($login, $password)
+    public function authenticate($login, $password)
     {
-        $user = $this->UserManager->getByMail($login);
-        var_dump($user);
+        $this->UserManager->getByMail($login, $password);
     }
     
 }

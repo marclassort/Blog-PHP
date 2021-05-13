@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
-use Entity\Comment;
+use Core\BaseController;
 
-class CommentController {
-    public function test() {
-        $comment = new Comment(new \DateTime());
+class CommentController extends BaseController
+{
+
+    public function comment() {
+        $this->render('frontend', 'comment.html.twig', []);
     }
+    
 }

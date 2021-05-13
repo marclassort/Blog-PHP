@@ -10,8 +10,8 @@
         "name" : "Ma base de données",
         "dbname" : "database",
         "host" : "localhost",
-        "user" : "admin",
-        "password" : "OC-Blog-PHP"
+        "user" : "root",
+        "password" : "root"
     },
     "basepath" : "/PHP/Blog-PHP"
 }

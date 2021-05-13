@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
-use Entity\User;
+use Core\BaseController;
 
-class AdminController {
-    public function test() {
-        $admin = new User();
+class AdminController extends BaseController
+{
+
+    public function admin() {
+        $this->render('backend', 'adminTemplate.html.twig', []);
     }
+    
 }

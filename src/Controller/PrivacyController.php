@@ -7,8 +7,8 @@ use Core\BaseController;
 class PrivacyController extends BaseController 
 {
 
-    public function Privacy() {
-        $this->view("politique-de-confidentialite");
+    public function privacy() {
+        $this->render('frontend', 'politique-de-confidentialite.html.twig', []);
     }
 
 }

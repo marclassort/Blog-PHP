@@ -7,8 +7,8 @@ use Core\BaseController;
 class ServicesController extends BaseController 
 {
 
-    public function Services() {
-        $this->view("services");
+    public function services() {
+        $this->render('frontend', 'services.html.twig', []);
     }
 
 }

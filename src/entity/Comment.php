@@ -4,52 +4,76 @@ namespace Entity;
 
 class Comment 
 {
+
+    /**
+     * @var int
+     */
     private $id;
+
+    /**
+     * @var string
+     */
     private $username;
+
+    /**
+     * @var string
+     */
     private $content;
+
+    /**
+     * @var mixed
+     */
     private $creationDate;
+
+    /**
+     * @var bool
+     */
     private $isValid;
 
-    public function __construct($creationDate) 
-    {
-        $this->creationDate = new \DateTime();
-    }
-
-    public function setId(int $id): void
+    public function __construct(int $id, string $u, string $c, mixed $cd, bool $i) 
     {
         $this->id = $id;
+        $this->username = $u;
+        $this->content = $c;
+        $this->creationDate = $cd;
+        $this->isValid = $i;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function setUsername(string $username): void
-    {
-        $this->username = $username;
-    }
-
+    /**
+     * @return string
+     */
     public function getUsername(): string
     {
         return $this->username;
     }
 
-    public function setContent(string $content): void
-    {
-        $this->content = $content;
-    }
-
+    /**
+     * @return string
+     */
     public function getContent(): string
     {
         return $this->content;
     }
 
-    public function setIsValid(bool $isValid): void
+    /**
+     * @return mixed
+     */
+    public function getCreationDate(): mixed
     {
-        $this->isValid = $isValid;
+        return $this->creationDate;
     }
 
+    /**
+     * @return bool
+     */
     public function getIsValid(): bool
     {
         return $this->isValid;
