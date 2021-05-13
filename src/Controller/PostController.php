@@ -15,10 +15,10 @@ class PostController extends BaseController
     {
         if ($form->isSubmitted() && $form->isValid())
         {
-            
+            $this->render('backend', 'adminTemplate.html.twig', []);
         } else 
         {
-            return $this->render('errors', '404.html.twig', []);
+            $this->render('errors', '404.html.twig', []);
         }
     }
     

@@ -8,7 +8,6 @@ use ControllerNotFoundException;
 class Route
 {
     private $path;
-    // private $controller;
     private $action;
     private $method;
     private $param;

@@ -45,10 +45,9 @@ class User
      */
     private $role;
 
-    public function __construct(int $id, string $un, string $fn, string $ln, string $pn, string $e, string $p, array $r)
+    public function __construct(string $un, string $fn, string $ln, string $pn, string $e, string $p, array $r)
     {
 
-        $this->id = $id;
         $this->username = $un;
         $this->firstName = $fn;
         $this->lastName = $ln;
