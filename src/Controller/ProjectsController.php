@@ -8,7 +8,7 @@ class ProjectsController extends BaseController
 {
 
     public function projects() {
-        return $this->render('frontend', 'projets.html.twig', []);
+        $this->render('frontend', 'projets.html.twig', []);
     }
 
 }

@@ -8,7 +8,7 @@ class ServicesController extends BaseController
 {
 
     public function services() {
-        return $this->render('frontend', 'services.html.twig', []);
+        $this->render('frontend', 'services.html.twig', []);
     }
 
 }

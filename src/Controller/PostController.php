@@ -8,17 +8,17 @@ class PostController extends BaseController
 {
 
     public function post() {
-        return $this->render('frontend', 'post.html.twig', []);
+        $this->render('frontend', 'post.html.twig', []);
     }
 
     public function registerPost($form)
     {
-        if ($form->isSubmitted() && $form->isValid())
+        if ($form->isSubmit() && $form->isValid())
         {
-            return $this->render('backend', 'adminTemplate.html.twig', []);
+            $this->redirect('/');
         } else 
         {
-            return $this->render('errors', '404.html.twig', []);
+            $this->render('errors', '404.html.twig', []);
         }
     }
     

@@ -49,7 +49,7 @@ class BaseController
         $this->FileManager->addJs($file);
     }
 
-    protected function render($dirname, $filename, $array): void
+    protected function render($dirname, $filename, $array)
 	{
         
 		if (file_exists(VIEW_DIR . '/' . $dirname . '/' . $filename))

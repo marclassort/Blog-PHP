@@ -8,7 +8,7 @@ class AdminController extends BaseController
 {
 
     public function admin() {
-        return $this->render('backend', 'adminTemplate.html.twig', []);
+        $this->render('backend', 'adminTemplate.html.twig', []);
     }
     
 }

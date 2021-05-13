@@ -8,7 +8,7 @@ class BlogController extends BaseController
 {
 
     public function blog() {
-        return $this->render('frontend', 'blog.html.twig', []);
+        $this->render('frontend', 'blog.html.twig', []);
     }
 
 }
