@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use Core\Database;
 use PDO;
 use PropertyNotFoundException;
 

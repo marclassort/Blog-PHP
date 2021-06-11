@@ -2,7 +2,9 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/",
-            "Core\\": "src/Core"
+            "Core\\": "src/Core",
+            "Repository\\": "src/Repository",
+            "Entity\\": "src/Entity"
         }
     },
     "require": {

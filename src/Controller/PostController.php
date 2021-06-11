@@ -3,22 +3,30 @@
 namespace App\Controller;
 
 use Core\BaseController;
+use Repository\PostManager;
 
 class PostController extends BaseController
 {
 
-    public function post() {
-        $this->render('frontend', 'post.html.twig', []);
+    private PostManager $postManager;
+
+    public function post(string $slug = 1) {
+
+        $post = $this->postManager->getPost($slug);
+
+        return $this->render('frontend/blog.html.twig', [
+            "post" => $post
+        ]);
     }
 
     public function registerPost($form)
     {
-        if ($form->isSubmit() && $form->isValid())
+        if ($form->isSubmitted() && $form->isValid())
         {
             $this->redirect('/');
         } else 
         {
-            $this->render('errors', '404.html.twig', []);
+            return $this->render('errors/404.html.twig');
         }
     }
     

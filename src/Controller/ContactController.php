@@ -8,7 +8,11 @@ class ContactController extends BaseController
 {
 
     public function contact() {
-        $this->render('frontend', 'contact.html.twig', []);
+
+        $string = "Marc Lassort";
+        return $this->render('frontend/contact.html.twig', [
+            "string" => $string
+        ]);
     }
 
 }

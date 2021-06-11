@@ -8,7 +8,7 @@
     ],
     "database" : {
         "name" : "Ma base de données",
-        "dbname" : "database",
+        "dbname" : "blog_marc_lassort",
         "host" : "localhost",
         "user" : "root",
         "password" : "root"

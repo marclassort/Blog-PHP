@@ -40,21 +40,12 @@ class Post
      */
     private $author;
 
-    public function __construct(int $id, string $t, string $b, mixed $cd, mixed $md, string $c, string $a) 
-    {
-        $this->id = $id; 
-        $this->title = $t;
-        $this->blurb = $b;
-        $this->creationDate = $cd;
-        $this->modifDate = $md;
-        $this->content = $c;
-        $this->author = $a;
-    }
+    
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -76,17 +67,17 @@ class Post
     }
 
     /**
-     * @return mixed
+     * @return string|null
      */
-    public function getCreationDate(): mixed
+    public function getCreationDate(): ?string
     {
         return $this->creationDate;
     }
 
     /**
-     * @return mixed
+     * @return string|null
      */
-    public function getModifDate(): mixed
+    public function getModifDate(): ?string
     {
         return $this->modifDate;
     }

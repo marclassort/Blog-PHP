@@ -7,6 +7,22 @@
     "manager" : []
 },
 {
+    "path" : "/register",
+    "controller" : "User",
+    "action" : "Register",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/password",
+    "controller" : "User",
+    "action" : "Password",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
     "path" : "/login",
     "controller" : "User",
     "action" : "Login",
@@ -26,6 +42,56 @@
     "manager" : [
         "User"
     ]
+},
+{
+    "path" : "/admin",
+    "controller" : "Admin",
+    "action" : "admin",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/creer-un-article",
+    "controller" : "Admin",
+    "action" : "createPost",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/liste-articles",
+    "controller" : "Admin",
+    "action" : "listPosts",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/editer-un-article",
+    "controller" : "Admin",
+    "action" : "editPost",
+    "method" : "GET",
+    "param" : [
+        "idPost"
+    ],
+    "manager" : []
+},
+{
+    "path" : "/gerer-commentaires",
+    "controller" : "Admin",
+    "action" : "manageComments",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
+},
+{
+    "path" : "/profil",
+    "controller" : "Admin",
+    "action" : "profile",
+    "method" : "GET",
+    "param" : [],
+    "manager" : []
 },
 {
     "path" : "/contact",
@@ -70,7 +136,7 @@
 {
     "path" : "/error",
     "controller" : "Error", 
-    "action" : "Show",
+    "action" : "error",
     "method" : "GET",
     "param" : [],
     "manager" : []

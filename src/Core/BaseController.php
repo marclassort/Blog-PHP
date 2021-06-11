@@ -2,7 +2,7 @@
 
 namespace Core;
 
-use FileManager;
+use Core\Response\Response;
 use ViewNotFoundException;
 
 require CORE_DIR . '/vendor/autoload.php';
@@ -13,7 +13,7 @@ class BaseController
     private $httpRequest;
     private $param;
     private $config;
-    private $FileManager;
+    protected $twig;
 
     public function __construct($httpRequest, $config)
     {
@@ -23,7 +23,9 @@ class BaseController
         $this->addParam("httprequest", $this->httpRequest);
         $this->addParam("config", $this->config);
         $this->bindManager();
-        $this->FileManager = new FileManager();
+
+        $loader = new \Twig\Loader\FilesystemLoader(VIEW_DIR . '//');
+        $this->twig = new \Twig\Environment($loader, ['debug' => true]);
     }
 
     public function bindManager()
@@ -39,29 +41,19 @@ class BaseController
         $this->param[$name] = $value;
     }
 
-    public function addCss($file)
-    {
-        $this->FileManager->addCss($file);
-    }
-
-    public function addJs($file)
-    {
-        $this->FileManager->addJs($file);
-    }
-
-    protected function render($dirname, $filename, $array)
+    protected function render($filename, $array = [])
 	{
         
-		if (file_exists(VIEW_DIR . '/' . $dirname . '/' . $filename))
+		if (file_exists(VIEW_DIR . '//' . $filename))
 		{
-
 			extract($this->param);
 
-			$loader = new \Twig\Loader\FilesystemLoader(VIEW_DIR . '//' . $dirname);
-			$twig = new \Twig\Environment($loader, ['debug' => true]);
+            $view = $this->twig->load($filename);
+            $content = $view->render($array);
+            $response = new Response($content);
             
-			echo $twig->render($filename, $array);
-
+            return $response->send();
+            
 		} else
 		{
 			throw new ViewNotFoundException();	
@@ -70,26 +62,21 @@ class BaseController
 
     public function redirect(string $path)
     {
-
         header("Location: /PHP/Blog-PHP/" . $path);
         exit();
-
     }
 
-    public function isSubmit($submit)
+    public function isSubmitted($submit)
     {
-        
         if (isset($_POST[$submit]))
         {
             return true;
         }
         return false;
-
     }
 
     public function isValid(array $data)
     {
-
         $isValid = true;
 
         foreach ($data as $value)
@@ -100,7 +87,30 @@ class BaseController
             }
         }
         return $isValid;
-
     }
 
+    public function hydrate($object, $values = null)
+    {
+        if ($values != null)
+        {
+            foreach ($values as $key => $value)
+            {
+                $elements = explode('_', $key);
+                $newKey = '';
+
+                foreach ($elements as $element)
+                {
+                    $newKey .= ucfirst($element);
+                }
+                $method = 'set' . ucfirst($newKey);
+
+                if (method_exists($object, $method))
+                {
+                    $object->$method($value);
+                }
+            }
+            return $this;
+        }
+        return false;
+    }
 }
