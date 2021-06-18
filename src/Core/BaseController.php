@@ -9,41 +9,16 @@ require CORE_DIR . '/vendor/autoload.php';
 
 class BaseController
 {
-
-    private $httpRequest;
-    private $param;
-    private $config;
     protected $twig;
 
-    public function __construct($httpRequest, $config)
+    public function __construct()
     {
-        $this->httpRequest = $httpRequest;
-        $this->config = $config;
-        $this->param = array();
-        $this->addParam("httprequest", $this->httpRequest);
-        $this->addParam("config", $this->config);
-        $this->bindManager();
-
         $loader = new \Twig\Loader\FilesystemLoader(VIEW_DIR . '//');
         $this->twig = new \Twig\Environment($loader, ['debug' => true]);
     }
 
-    public function bindManager()
-    {
-        foreach($this->httpRequest->getRoute()->getManager() as $manager)
-        {
-            $this->$manager = new $manager($this->config->database);
-        }
-    }
-
-    public function addParam($name, $value)
-    {
-        $this->param[$name] = $value;
-    }
-
     protected function render($filename, $array = [])
 	{
-        
 		if (file_exists(VIEW_DIR . '//' . $filename))
 		{
 			extract($this->param);

@@ -2,39 +2,14 @@
 
 namespace Core;
 
-use MultipleRouteFoundException;
-use NoRouteFoundException;
+use Pecee\SimpleRouter\SimpleRouter;
 
-class Router
+class Router extends SimpleRouter
 {
-    private $listRoute;
-
-    public function __construct()
+    public static function start(): void
     {
-        $stringRoute = file_get_contents(CONF_DIR . '/route.json');
-        $this->listRoute = json_decode($stringRoute);
-    }
-
-    public function findRoute($httpRequest, $basepath)
-    {
-        $url = str_replace($basepath, "", $httpRequest->getUrl());
-        $method = $httpRequest->getMethod();
-        $routeFound = array_filter($this->listRoute, function($route) use ($url, $method) {
-            return preg_match("#^" . $route->path . "$#", $url) && $route->method == $method;
-        });
-
-        $numberRoute = count($routeFound);
-
-        if ($numberRoute > 1)
-        {
-            throw new MultipleRouteFoundException();
-        }
-        else if ($numberRoute == 0)
-        {
-            throw new NoRouteFoundException($httpRequest);
-        }
-        else {
-            return new Route(array_shift($routeFound));
-        }
+        require_once '../../config/helpers.php';
+        require_once '../../config/routes.php';
+        parent::start();
     }
 }
